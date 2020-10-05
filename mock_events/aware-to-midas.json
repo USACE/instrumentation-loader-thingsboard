@@ -1,0 +1,21 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:us-east-1:038611608639:corpsmap-test-app:18622402-045c-41b8-ae09-7ab352781234",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "9dc6ec9c-87db-5f3e-ab6c-bb79cce12345",
+                "TopicArn": "arn:aws:sns:us-east-1:038611608639:corpsmap-test-app",
+                "Subject": null,
+                "Message": "{\"midas\": {\"timeseries_id\": \"538a1d10-69d7-45ff-9fb7-3828d95a8d24\"}, \"aware\": {\"device_id\": \"75d17100-df1c-11ea-91b8-79e9d146b46f\", \"param\": \"baro\"}, \"datetime_start\": \"2020-09-29T05:01:00.00Z\", \"datetime_end\": \"2020-10-05T23:59:00.00Z\"}",
+                "Timestamp": "2020-09-23T13:09:15.569Z",
+                "SignatureVersion": "1",
+                "Signature": "1234",
+                "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-123456.pem",
+                "MessageAttributes": {}
+            }
+        }
+    ]
+}
