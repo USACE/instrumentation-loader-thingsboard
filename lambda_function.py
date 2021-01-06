@@ -80,6 +80,7 @@ def get_aware_data(start, end, device, params):
 
     if response.status_code != 200:
         logging.info(response.json())
+        print('exiting with error')
         exit(1)
     
     return response.json()
@@ -98,7 +99,8 @@ def write_midas_ts_measurements(tsid, aware_results):
             ms, val = tsv['ts'], float(tsv['value'])
             #logging.info('{}, {}'.format(epoch_to_human(ms/1000.0), val))
 
-            timestamp = format(epoch_to_human(ms/1000.0))
+            #timestamp = format(epoch_to_human(ms/1000.0))
+            timestamp = format(epoch_ms_to_human(ms))
 
             items.append({"time":timestamp, "value":val})
             
@@ -124,8 +126,9 @@ def write_midas_ts_measurements(tsid, aware_results):
 
     
 #########################################################################
-def epoch_to_human(ts):
-    return datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%dT%H:%M:%SZ')
+# convert epoch miliseconds to human datetime string (UTC)
+def epoch_ms_to_human(ts):
+    return datetime.datetime.utcfromtimestamp(ts/1000).strftime('%Y-%m-%dT%H:%M:%SZ')
 #########################################################################
 def lambda_handler(event, context=None):    
 
